@@ -2,7 +2,11 @@ module lottery
 
 go 1.17
 
-require github.com/kataras/iris/v12 v12.1.8
+require (
+	github.com/go-sql-driver/mysql v1.6.0
+	github.com/kataras/iris/v12 v12.1.8
+	xorm.io/xorm v1.2.5
+)
 
 require (
 	github.com/BurntSushi/toml v0.3.1 // indirect
@@ -20,6 +24,9 @@ require (
 	github.com/gobwas/httphead v0.0.0-20180130184737-2c6c146eadee // indirect
 	github.com/gobwas/pool v0.2.0 // indirect
 	github.com/gobwas/ws v1.0.2 // indirect
+	github.com/goccy/go-json v0.7.4 // indirect
+	github.com/golang/snappy v0.0.3 // indirect
+	github.com/gomodule/redigo v1.8.8 // indirect
 	github.com/google/go-cmp v0.5.5 // indirect
 	github.com/google/go-querystring v1.1.0 // indirect
 	github.com/gorilla/websocket v1.4.1 // indirect
@@ -29,7 +36,7 @@ require (
 	github.com/iris-contrib/jade v1.1.3 // indirect
 	github.com/iris-contrib/pongo2 v0.0.1 // indirect
 	github.com/iris-contrib/schema v0.0.1 // indirect
-	github.com/json-iterator/go v1.1.9 // indirect
+	github.com/json-iterator/go v1.1.11 // indirect
 	github.com/kataras/golog v0.0.10 // indirect
 	github.com/kataras/neffos v0.0.14 // indirect
 	github.com/kataras/pio v0.0.2 // indirect
@@ -38,8 +45,8 @@ require (
 	github.com/mattn/go-colorable v0.1.12 // indirect
 	github.com/mediocregopher/radix/v3 v3.4.2 // indirect
 	github.com/microcosm-cc/bluemonday v1.0.2 // indirect
-	github.com/modern-go/concurrent v0.0.0-20180228061459-e0a39a4cb421 // indirect
-	github.com/modern-go/reflect2 v0.0.0-20180701023420-4b7aa43c6742 // indirect
+	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
+	github.com/modern-go/reflect2 v1.0.1 // indirect
 	github.com/moul/http2curl v1.0.0 // indirect
 	github.com/nats-io/nats-server/v2 v2.7.0 // indirect
 	github.com/nats-io/nats.go v1.13.1-0.20211122170419-d7c1d78a50fc // indirect
@@ -53,7 +60,8 @@ require (
 	github.com/sergi/go-diff v1.2.0 // indirect
 	github.com/shurcooL/sanitized_anchor_name v1.0.0 // indirect
 	github.com/smartystreets/goconvey v1.7.2 // indirect
-	github.com/stretchr/testify v1.5.1 // indirect
+	github.com/stretchr/testify v1.7.0 // indirect
+	github.com/syndtr/goleveldb v1.0.0 // indirect
 	github.com/valyala/bytebufferpool v1.0.0 // indirect
 	github.com/valyala/fasthttp v1.32.0 // indirect
 	github.com/xeipuuv/gojsonpointer v0.0.0-20180127040702-4e3ac2762d5f // indirect
@@ -65,11 +73,11 @@ require (
 	github.com/yudai/pp v2.0.1+incompatible // indirect
 	golang.org/x/crypto v0.0.0-20220112180741-5e0467b6c7ce // indirect
 	golang.org/x/net v0.0.0-20211112202133-69e39bad7dc2 // indirect
-	golang.org/x/sync v0.0.0-20201020160332-67f06af15bc9 // indirect
 	golang.org/x/sys v0.0.0-20220111092808-5a964db01320 // indirect
 	golang.org/x/text v0.3.6 // indirect
 	golang.org/x/xerrors v0.0.0-20200804184101-5ec99f83aff1 // indirect
 	gopkg.in/ini.v1 v1.51.1 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
-	gopkg.in/yaml.v3 v3.0.0-20191120175047-4206685974f2 // indirect
+	gopkg.in/yaml.v3 v3.0.0-20200313102051-9f266ea9e77c // indirect
+	xorm.io/builder v0.3.9 // indirect
 )
