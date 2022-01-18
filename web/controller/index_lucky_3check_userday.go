@@ -6,6 +6,7 @@ import (
 	"lottery/config"
 	"lottery/models"
 	"lottery/services"
+	"lottery/web/utils"
 	"strconv"
 	"time"
 )
@@ -17,13 +18,13 @@ func (api *LuckyApi) checkUserday(uid int, num int64) bool {
 		// 今天存在抽奖记录
 		if userdayInfo.Num >= config.UserPrizeMax {
 			if int(num) < userdayInfo.Num {
-				//utils.InitUserLuckyNum(uid, int64(userdayInfo.Num))
+				utils.InitUserLuckyNum(uid, int64(userdayInfo.Num))
 			}
 			return false
 		} else {
 			userdayInfo.Num++
 			if int(num) < userdayInfo.Num {
-				// utils.InitUserLuckyNum(uid, int64(userdayInfo.Num))
+				utils.InitUserLuckyNum(uid, int64(userdayInfo.Num))
 			}
 			err103 := userdayService.Update(userdayInfo, nil)
 			if err103 != nil {
@@ -47,7 +48,7 @@ func (api *LuckyApi) checkUserday(uid int, num int64) bool {
 			log.Println("index_lucky_check_userday ServiceUserDay.Create "+
 				"err103=", err103)
 		}
-		//utils.InitUserLuckyNum(uid, 1)
+		utils.InitUserLuckyNum(uid, 1)
 	}
 	return true
 }

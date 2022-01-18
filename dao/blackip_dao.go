@@ -53,6 +53,19 @@ func (d *BlackipDao) CountAll() int64 {
 	}
 }
 
+func (d *BlackipDao) Search(ip string) []models.LtBlackip {
+	datalist := make([]models.LtBlackip, 0)
+	err := d.engine.
+		Where("ip=?", ip).
+		Desc("id").
+		Find(&datalist)
+	if err != nil {
+		return datalist
+	} else {
+		return datalist
+	}
+}
+
 //func (d *BlackipDao) Delete(id int) error {
 //	data := &models.LtBlackip{Id: id, SysStatus: 1}
 //	_, err := d.engine.Id(data.Id).Update(data)
@@ -77,7 +90,6 @@ func (d *BlackipDao) GetByIp(ip string) *models.LtBlackip {
 		Desc("id").
 		Limit(1).
 		Find(&datalist)
-
 	if err != nil || len(datalist) < 1 {
 		return nil
 	} else {
