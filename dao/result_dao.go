@@ -53,6 +53,72 @@ func (d *ResultDao) CountAll() int64 {
 	}
 }
 
+func (d *ResultDao) GetNewPrize(size int, giftIds []int) []models.LtResult {
+	datalist := make([]models.LtResult, 0)
+	err := d.engine.
+		In("gift_id", giftIds).
+		Desc("id").
+		Limit(size).
+		Find(&datalist)
+	if err != nil {
+		return datalist
+	} else {
+		return datalist
+	}
+}
+
+func (d *ResultDao) SearchByGift(giftId, page, size int) []models.LtResult {
+	offset := (page - 1) * size
+	datalist := make([]models.LtResult, 0)
+	err := d.engine.
+		Where("gift_id=?", giftId).
+		Desc("id").
+		Limit(size, offset).
+		Find(&datalist)
+	if err != nil {
+		return datalist
+	} else {
+		return datalist
+	}
+}
+
+func (d *ResultDao) SearchByUser(uid, page, size int) []models.LtResult {
+	offset := (page - 1) * size
+	datalist := make([]models.LtResult, 0)
+	err := d.engine.
+		Where("uid=?", uid).
+		Desc("id").
+		Limit(size, offset).
+		Find(&datalist)
+	if err != nil {
+		return datalist
+	} else {
+		return datalist
+	}
+}
+
+func (d *ResultDao) CountByGift(giftId int) int64 {
+	num, err := d.engine.
+		Where("gift_id=?", giftId).
+		Count(&models.LtResult{})
+	if err != nil {
+		return 0
+	} else {
+		return num
+	}
+}
+
+func (d *ResultDao) CountByUser(uid int) int64 {
+	num, err := d.engine.
+		Where("uid=?", uid).
+		Count(&models.LtResult{})
+	if err != nil {
+		return 0
+	} else {
+		return num
+	}
+}
+
 func (d *ResultDao) Delete(id int) error {
 	data := &models.LtResult{Id: id, SysStatus: 1}
 	_, err := d.engine.ID(data.Id).Update(data)

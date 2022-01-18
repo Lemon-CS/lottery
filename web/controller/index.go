@@ -29,7 +29,7 @@ func (c *IndexController) GetGifts() map[string]interface{} {
 	rs := make(map[string]interface{})
 	rs["code"] = 0
 	rs["msg"] = ""
-	gifts := c.ServiceGift.GetAll()
+	gifts := c.ServiceGift.GetAll(false)
 	list := make([]models.LtGift, 0)
 
 	for _, gift := range gifts {

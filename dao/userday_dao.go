@@ -53,6 +53,33 @@ func (d *UserdayDao) CountAll() int64 {
 	}
 }
 
+func (d *UserdayDao) Search(uid, day int) []models.LtUserday {
+	datalist := make([]models.LtUserday, 0)
+	err := d.engine.
+		Where("uid=?", uid).
+		Where("day=?", day).
+		Desc("id").
+		Find(&datalist)
+	if err != nil {
+		return datalist
+	} else {
+		return datalist
+	}
+}
+
+func (d *UserdayDao) Count(uid, day int) int {
+	info := &models.LtUserday{}
+	ok, err := d.engine.
+		Where("uid=?", uid).
+		Where("day=?", day).
+		Get(info)
+	if !ok || err != nil {
+		return 0
+	} else {
+		return info.Num
+	}
+}
+
 //func (d *UserdayDao) Delete(id int) error {
 //	data := &models.LtUserday{Id: id, SysStatus: 1}
 //	_, err := d.engine.ID(data.Id).Update(data)
